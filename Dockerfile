@@ -5,8 +5,13 @@ COPY fastcgi-wrapper.pl /usr/bin/fastcgi-wrapper.pl
 COPY init.sh /init.sh
 
 RUN apt-get update && \
-    apt-get install -y libfcgi-perl libcgi-pm-perl libwww-perl && \
-    apt-get clean && \
+    apt-get install -y libfcgi-perl libcgi-pm-perl libwww-perl build-essential && \
+    cpan install JSON::XS Digest::SHA1 Crypt::CBC Crypt::Cipher::AES HTML::Template HTML::TreeBuilder::XPath Redis::Client && \
+    cpan install HTML::Strip HTML::Entities Log::Log4perl DBI JSON MIME::Base32 && \
+    apt-get -y remove build-essential && \
+    apt-get -y autoclean && \
+    apt-get -y clean && \
+    apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/* && \
     chmod +x /init.sh && \
     chmod +x /usr/bin/fastcgi-wrapper.pl && \
