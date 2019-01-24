@@ -5,11 +5,14 @@
 `docker build -t kinginsun/perl-fcgi .`
 
 #### 运行
-`docker run -p 80:80 --name fcgi -d -v /PATH/TO/code:/var/www/my_site:ro kinginsun/perl-fcgi`
+`docker run -p 8000:80 --name fcgi -d -v $PWD/code:/var/www/my_site:ro kinginsun/perl-fcgi`
+
+服务运行在本地8000端口
 
 #### code目录中的代码需要增加可执行权限：
 `sudo chmod +x code/*.pl`
-Perl代码需要输出html头，否则会出错：
+
+#### Perl代码需要输出html头，否则会出错：
 print "Content-type:text/html\n\n";
 
 #### 查看运行日志
