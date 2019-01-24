@@ -12,6 +12,7 @@ RUN apt-get update && \
     apt-get -y autoclean && \
     apt-get -y clean && \
     apt-get -y autoremove && \
+    rm -rf /root/.cpan && \
     rm -rf /var/lib/apt/lists/* && \
     chmod +x /init.sh && \
     chmod +x /usr/bin/fastcgi-wrapper.pl && \
