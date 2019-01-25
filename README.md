@@ -22,6 +22,17 @@ print "Content-type:text/html\n\n";
 虽然上面的perl环境搭建好了，但是若perl代码中涉及到核心模块以外的模块时，perl脚本就会运行出错。
 需要在Dockerfile第9-10行的cpan install 后面加上需要支持模块的名称。
 
+## docker hub
+上传
+
+`docker push kinginsun/perl-fcgi:latest`
+
+[docker地址](https://cloud.docker.com/u/kinginsun/repository/docker/kinginsun/perl-fcgi)
+
+Pull
+
+`docker pull kinginsun/perl-fcgi`
+
 
 ---
 
