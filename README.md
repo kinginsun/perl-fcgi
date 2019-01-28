@@ -4,6 +4,10 @@
 #### 构建
 `docker build -t kinginsun/perl-fcgi .`
 
+测试用
+
+`docker build -f Dockerfile.dev -t kinginsun/perl-fcgi:dev .`
+
 #### 运行
 `docker run -p 8000:80 --name fcgi -d -v $PWD/code:/var/www/my_site:ro kinginsun/perl-fcgi`
 

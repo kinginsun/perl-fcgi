@@ -5,9 +5,9 @@ COPY fastcgi-wrapper.pl /usr/bin/fastcgi-wrapper.pl
 COPY init.sh /init.sh
 
 RUN apt-get update && \
-    apt-get install -y libfcgi-perl libcgi-pm-perl libwww-perl libdbd-mysql-perl default-libmysqlclient-dev build-essential && \
+    apt-get install -y libfcgi-perl libcgi-pm-perl libwww-perl libdbd-mysql-perl default-libmysqlclient-dev build-essential iputils-ping net-tools curl mariadb-client-core-10.1 && \
     cpan install JSON::XS Digest::SHA1 Crypt::CBC Crypt::Cipher::AES HTML::Template HTML::TreeBuilder::XPath Redis::Client && \
-    cpan install HTML::Strip HTML::Entities Log::Log4perl DBI DBD::mysql JSON MIME::Base32 && \
+    cpan install HTML::Strip HTML::Entities Log::Log4perl DBI JSON MIME::Base32 DBD::mysql && \
     apt-get -y remove build-essential && \
     apt-get -y autoclean && \
     apt-get -y clean && \
